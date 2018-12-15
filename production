@@ -1,14 +1,14 @@
 # file: production
-[docker-managers]
+[swarm-managers]
 192.168.178.31
 
-[docker-workers]
+[swarm-workers]
 192.168.178.32
 192.168.178.33
 
 [swarm:children]
-docker-managers
-docker-workers
+swarm-managers
+swarm-workers
 
 [docker:children]
 swarm

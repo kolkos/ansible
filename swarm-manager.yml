@@ -1,0 +1,5 @@
+---
+# file: swarn-manager.yml
+- hosts: swarm-managers
+  roles:
+    - swarm-manager

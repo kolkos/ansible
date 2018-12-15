@@ -1,0 +1,5 @@
+---
+# file: roles/swarm-manager/tasks/main.yml
+- name: Test Swarm MANAGER
+  debug:
+    msg: Hallo wereld!
