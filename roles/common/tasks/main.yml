@@ -1,0 +1,13 @@
+---
+# file: roles/common/tasks/main.yml
+
+#- name: setup Action User
+#  user: generate_ssh_key=yes name={{action_user}} password={{action_user_pw | password_hash('sha512') }} shell=/bin/bash
+
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 # One day
+

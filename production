@@ -1,0 +1,17 @@
+# file: production
+[docker-managers]
+192.168.178.31
+
+[docker-workers]
+192.168.178.32
+192.168.178.33
+
+[swarm:children]
+docker-managers
+docker-workers
+
+[docker:children]
+swarm
+
+[raspberries:children]
+docker

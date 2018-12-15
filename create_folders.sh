@@ -1,6 +1,6 @@
 #!/bin/bash
-mkdir -p production
-mkdir -p staging
+touch production
+touch staging
 
 mkdir -p group_vars
 touch group_vars/group1.yml
