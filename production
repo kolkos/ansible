@@ -1,6 +1,6 @@
 # file: production
 [swarm-managers]
-192.168.178.31
+manager1 ansible_host="192.168.178.31"
 
 [swarm-workers]
 192.168.178.32

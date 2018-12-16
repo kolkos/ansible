@@ -1,4 +1,10 @@
 ---
 # file: site.yml
+# Install and update common software
+- import_playbook: general.yml
+# Install docker on the docker hosts
 - import_playbook: docker.yml
+# Tasks for the swarm managers
 - import_playbook: swarm-manager.yml
+# Tasks for the swarm workers
+- import_playbook: swarm-worker.yml

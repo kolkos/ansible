@@ -1,0 +1,5 @@
+---
+# file: swarn-worker.yml
+- hosts: swarm-workers
+  roles:
+    - swarm-worker
