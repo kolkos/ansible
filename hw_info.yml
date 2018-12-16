@@ -1,0 +1,24 @@
+---
+- hosts: all
+  tasks:
+  - name: Get memory info
+    shell: >
+      free -m |
+      awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
+    register: resultMem
+  - name: Get Disk info
+    shell: >
+      df -h | 
+      awk '$NF=="/"{printf "Disk Usage: %d/%dGB (%s)\n", $3,$2,$5}'
+    register: resultDisk
+  - name: Get CPU info
+    shell: >
+      top -bn1 | 
+      grep load | 
+      awk '{printf "CPU Load: %.2f\n", $(NF-2)}' 
+    register: resultCPU
+  - debug:
+      msg: 
+        - "{{ resultMem.stdout }}"
+        - "{{ resultDisk.stdout }}"
+        - "{{ resultCPU.stdout }}"
