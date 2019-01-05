@@ -15,3 +15,5 @@
 - name: "get docker swarm worker token"
   shell: docker swarm join-token -q worker
   register: worker_token
+
+- name: "Cl"
