@@ -1,5 +1,7 @@
 ---
-# file: swarn-manager.yml
+# file: swarm-manager.yml
 - hosts: swarm-managers
   roles:
+    - led-status-start
     - swarm-manager
+    - led-status-finish

@@ -2,4 +2,6 @@
 # file: swarn-worker.yml
 - hosts: swarm-workers
   roles:
+    - led-status-start
     - swarm-worker
+    - led-status-finish

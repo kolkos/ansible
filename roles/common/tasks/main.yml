@@ -1,9 +1,5 @@
 ---
 # file: roles/common/tasks/main.yml
-
-#- name: setup Action User
-#  user: generate_ssh_key=yes name={{action_user}} password={{action_user_pw | password_hash('sha512') }} shell=/bin/bash
-
 - name: Update and upgrade apt packages
   become: true
   apt:
@@ -16,3 +12,8 @@
   apt:
     name: git
     state: present
+
+- name: Turn led Green
+  command: "python /home/pi/rgbled.py groen"
+  become: true
+  when: stat_result.stat.exists == True

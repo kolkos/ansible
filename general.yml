@@ -2,4 +2,6 @@
 # file: general.yml
 - hosts: all
   roles:
+    - led-status-start
     - common
+    - led-status-finish

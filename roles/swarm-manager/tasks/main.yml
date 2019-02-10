@@ -3,7 +3,7 @@
 - name: Test Swarm MANAGER
   debug:
     msg: Hallo wereld!
-  
+
 - name: Init Docker Swarm Manager
   shell: docker swarm init --advertise-addr {{ ansible_eth0['ipv4']['address'] }}
   when: "docker_info.stdout.find('Swarm: inactive') != -1"
@@ -15,5 +15,3 @@
 - name: "get docker swarm worker token"
   shell: docker swarm join-token -q worker
   register: worker_token
-
-- name: "Cl"

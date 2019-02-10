@@ -17,8 +17,16 @@
       grep load | 
       awk '{printf "CPU Load: %.2f\n", $(NF-2)}' 
     register: resultCPU
+  - name: Get uptime
+    shell: > 
+      /usr/bin/uptime | 
+      grep -ohe 'up .*' | 
+      sed 's/,//g' | 
+      awk '{ printf "Uptime:  %d %s\n", $2, $3 }'
+    register: uptime
   - debug:
       msg: 
         - "{{ resultMem.stdout }}"
         - "{{ resultDisk.stdout }}"
         - "{{ resultCPU.stdout }}"
+        - "{{ uptime.stdout }}"

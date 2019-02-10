@@ -2,4 +2,6 @@
 # file: docker.yml
 - hosts: docker
   roles:
+    - led-status-start
     - docker
+    - led-status-finish
