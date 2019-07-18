@@ -13,6 +13,12 @@
     name: git
     state: present
 
+- name: Install nmon
+  become: true
+  apt:
+    name: nmon
+    state: present
+
 - name: Turn led Green
   command: "python /home/pi/rgbled.py groen"
   become: true

@@ -3,3 +3,8 @@
   shell: docker info
   register: docker_info
   changed_when: false
+
+- name: Get docker swarm status
+  shell: >
+    docker info | egrep '^Swarm: ' | cut -d ' ' -f2
+  register: swarm_status

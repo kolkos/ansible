@@ -12,7 +12,6 @@ swarm-workers
 
 [docker:children]
 swarm
-touchscreen
 
 [domoticz]
 192.168.178.3
