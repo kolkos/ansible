@@ -1,27 +1,29 @@
 # file: production
-[swarm-managers]
-manager1 ansible_host="192.168.178.31"
+[pihole]
+192.168.178.100
 
-[swarm-workers]
-192.168.178.32
-192.168.178.33
+[appservers]
+192.168.178.101
+192.168.178.102
 
-[swarm:children]
-swarm-managers
-swarm-workers
-
-[docker:children]
-swarm
+[orangepi]
+192.168.178.24
 
 [domoticz]
 192.168.178.3
 
 [touchscreen]
 192.168.178.6
-192.168.178.20
+
+[docker:children]
+pihole
+appservers
+touchscreen
+
+[vpn:children]
+pihole
 
 [raspberries:children]
 docker
 domoticz
 touchscreen
-

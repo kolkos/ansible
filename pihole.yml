@@ -1,0 +1,7 @@
+---
+# file: pihole.yml
+- hosts: pihole
+  roles:
+    - led-status-start
+    - pihole
+    - led-status-finish
