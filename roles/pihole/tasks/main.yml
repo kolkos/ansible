@@ -1,0 +1,19 @@
+# file: roles/pihole/tasks/main.yml
+---
+
+- name: Create a Pihole Docker directory
+  become: true
+  file:
+    path: /opt/pihole
+    state: directory
+    owner: pi
+    group: pi
+    mode: '0755'
+
+- name: Copy docker script
+  copy:
+    src: files/docker_run.sh
+    dest: /opt/pihole/docker_run.sh
+    owner: pi
+    group: pi
+    mode: '0644'
